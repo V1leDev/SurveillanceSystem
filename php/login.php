@@ -7,6 +7,18 @@
     <!--<link rel="icon" href="images/logo.jpg">-->
 </head>
 <body id="body">
-<script src="../scripts/login.js"></script>
+<h1>Welcome to our surveillance system</h1>
+<h2>Here you can login with your username and password to access our data</h2>
+<form method="post" action="registerInput.php">
+    <label>
+        <input type="text" name="username_input" placeholder="Username">
+    </label>
+    <label>
+        <input type="text" name="password_input" placeholder="Password">
+    </label>
+    <input type="submit">
+    <input type="reset">
+</form>
 </body>
 </html>
+

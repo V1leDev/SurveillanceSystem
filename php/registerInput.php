@@ -10,18 +10,10 @@ function addUser($pdo, $password, $username){
     # close statement
     $statement = null;
 
-    echo "Already Registered!";
+    echo "Registration successful!";
 }
 
-if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
-    # get username from form
-    $username = $_POST['username_input'];
-    # get password from form
-    $password = $_POST['password_input'];
-
-    # set up connection to database
-    $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', "admin", "adminpw2169!");
-
+function checkUser($pdo, $password, $username){
     # prepare statement to query for dataset with specific username
     $statementCheckUser = $pdo->prepare("SELECT username FROM TUser WHERE username=?");
     # check if execution was successful
@@ -35,7 +27,20 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
             echo "Already registered!";
         }
     }
+    # close statement
+    $statementCheckUser = null;
+}
 
+if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
+    # get username from form
+    $username = $_POST['username_input'];
+    # get password from form
+    $password = $_POST['password_input'];
+
+    # set up connection to database
+    $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', "admin", "adminpw2169!");
+
+    checkUser($pdo, $password, $username);
 
     /*
     $statementCheckUser = $pdo->prepare('SELECT * FROM TRole');
@@ -43,8 +48,6 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     echo $statementCheckUser->fetchAll()[1]['roleDescription'];
     */
 
-    # close statement
-    $statementCheckUser = null;
     # close connection to database
     $pdo = null;
 }
