@@ -9,7 +9,7 @@
 <body id="body">
 <h1>Welcome to our surveillance system</h1>
 <h2>Here you can login with your username and password to access our data</h2>
-<form method="post" action="registerInput.php">
+<form method="post" action="loginInput.php">
     <label>
         <input type="text" name="username_input" placeholder="Username">
     </label>
