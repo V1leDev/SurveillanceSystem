@@ -11,6 +11,7 @@ function checkPassword($statementRow, $password)
 
         # create new session variable with username as value
         $_SESSION['username'] = $statementRow['username'];
+        //header("location:jeff.html");
     } else {
         echo "Password incorrect!";
     }
@@ -53,3 +54,5 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     # close connection to database
     $pdo = null;
 }
+
+# TODO: admin alle rechte, guest select Rechte, add user: select, del, insert, update
