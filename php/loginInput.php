@@ -46,7 +46,7 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     $password = $_POST['password_input'];
 
     # set up connection to database
-    $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', "admin", "adminpw2169!");
+    $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', "website", "websitepw2169!");
 
     # call function to check if user already exists
     checkUser($pdo, $password, $username);
