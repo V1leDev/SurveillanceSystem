@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Sidebar</title>
+    <title>Home - Visionary</title>
     <link rel="stylesheet" href="../assets/sidebar/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/sidebar/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/sidebar/css/Sidebar-Menu-1.css">
@@ -32,6 +32,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activatePerson" ">Person</a></li>
             <li><a href="#" id="activateGeburt">Geburt</a></li>
             <li><a href="#" id="activateOrt">Ort</a></li>
+            <li><a href="#" id="activateGemeinde">Gemeinde</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">
@@ -54,6 +55,7 @@ if (!isset($_SESSION['username'])) {
 <script src="../scripts/getTPerson.js" type="text/javascript"></script>
 <script src="../scripts/getTGeburt.js" type="text/javascript"></script>
 <script src="../scripts/getTOrt.js" type="text/javascript"></script>
+<script src="../scripts/getTGemeinde.js" type="text/javascript"></script>
 <script src="../scripts/dataHome.js" type="text/javascript"></script>
 </body>
 
