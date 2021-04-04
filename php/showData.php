@@ -30,7 +30,7 @@ if (!isset($_SESSION['username'])) {
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a id="activateHome" href="#">Home </a></li>
             <li><a href="#" id="activatePerson" ">Person</a></li>
-            <li><a href="#">Dashboard </a></li>
+            <li><a href="#" id="activateGeburt">Geburt</a></li>
             <li><a href="#">Dashboard </a></li>
         </ul>
     </div>
@@ -52,6 +52,7 @@ if (!isset($_SESSION['username'])) {
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="../scripts/getTPerson.js" type="text/javascript"></script>
+<script src="../scripts/getTGeburt.js" type="text/javascript"></script>
 <script src="../scripts/dataHome.js" type="text/javascript"></script>
 </body>
 

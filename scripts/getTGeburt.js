@@ -1,10 +1,10 @@
-activateperson = document.getElementById('activatePerson')
-activateperson.onclick = function () {
+activate = document.getElementById('activateGeburt')
+activate.onclick = function () {
     let datadiv = document.getElementById('datadiv')
     datadiv.innerHTML = ''
 
     let datatable = document.createElement('table')
-    datatable.id = 'person'
+    datatable.id = 'geburt'
     datatable.className = 'cell-border'
     datatable.style.width='100%'
 
@@ -12,11 +12,11 @@ activateperson.onclick = function () {
 
     $.ajax({
         type: "POST",
-        url: "../php/DBAccess/getTPerson.php",
+        url: "../php/DBAccess/getTGeburt.php",
         dataType: "html",
         success: function (data) {
-            $("#person").html(data);
-            $('#person').DataTable({
+            $("#geburt").html(data);
+            $('#geburt').DataTable({
 
             });
         }

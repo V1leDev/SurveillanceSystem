@@ -1,6 +1,18 @@
 <?php
+# start session
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("location:login.php#login");
+}
+if (isset($_SESSION['username'])) {
+    if ($_SESSION['dbusername'] == 'guest') {
+        header("location:showData.php");
+    }
+}
+
 // DataTables PHP library
-include( "lib/DataTables.php" );
+include("lib/DataTables.php");
 
 // Alias Editor classes so they are easy to use
 use
@@ -12,19 +24,19 @@ use
     DataTables\Editor\Upload,
     DataTables\Editor\Validate;
 
-$editor = Editor::inst( $db, 'TPerson', 'Ausweisnummer' )
+$editor = Editor::inst($db, 'TPerson', 'Ausweisnummer')
     ->fields(
-        Field::inst( 'Ausweisnummer' ),
-        Field::inst( 'Vorname' ),
-        Field::inst( 'Nachname' ),
-        Field::inst( 'Status' ),
-        Field::inst( 'Steuernummer' ),
-        Field::inst( 'Email' ),
-        Field::inst( 'Telefonnummer' ),
-        Field::inst( 'Geschlecht' ),
-        Field::inst( 'VaterAusweisnummerForeign' ),
-        Field::inst( 'MutterAusweisnummerForeign' ),
-        Field::inst( 'GeburtsIDForeign' )
+        Field::inst('Ausweisnummer'),
+        Field::inst('Vorname'),
+        Field::inst('Nachname'),
+        Field::inst('Status'),
+        Field::inst('Steuernummer'),
+        Field::inst('Email'),
+        Field::inst('Telefonnummer'),
+        Field::inst('Geschlecht'),
+        Field::inst('VaterAusweisnummerForeign'),
+        Field::inst('MutterAusweisnummerForeign'),
+        Field::inst('GeburtsIDForeign')
     )
-    ->process( $_POST )
+    ->process($_POST)
     ->json();
