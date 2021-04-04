@@ -33,6 +33,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activateGeburt">Geburt</a></li>
             <li><a href="#" id="activateOrt">Ort</a></li>
             <li><a href="#" id="activateGemeinde">Gemeinde</a></li>
+            <li><a href="#" id="activateSitz">Sitz</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">
@@ -56,6 +57,7 @@ if (!isset($_SESSION['username'])) {
 <script src="../scripts/getTGeburt.js" type="text/javascript"></script>
 <script src="../scripts/getTOrt.js" type="text/javascript"></script>
 <script src="../scripts/getTGemeinde.js" type="text/javascript"></script>
+<script src="../scripts/getTSitz.js" type="text/javascript"></script>
 <script src="../scripts/dataHome.js" type="text/javascript"></script>
 </body>
 
