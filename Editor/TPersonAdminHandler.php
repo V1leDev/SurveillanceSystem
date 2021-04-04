@@ -1,16 +1,4 @@
 <?php
-# start session
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    header("location:login.php#login");
-}
-if (isset($_SESSION['username'])) {
-    if ($_SESSION['dbusername'] == 'guest') {
-        header("location:showData.php");
-    }
-}
-
 // DataTables PHP library
 include("lib/DataTables.php");
 
@@ -34,8 +22,10 @@ $editor = Editor::inst($db, 'TPerson', 'Ausweisnummer')
         Field::inst('Email'),
         Field::inst('Telefonnummer'),
         Field::inst('Geschlecht'),
-        Field::inst('VaterAusweisnummerForeign'),
-        Field::inst('MutterAusweisnummerForeign'),
+        Field::inst('VaterAusweisnummerForeign')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('MutterAusweisnummerForeign')
+            ->setFormatter(Format::ifEmpty(null)),
         Field::inst('GeburtsIDForeign')
     )
     ->process($_POST)
