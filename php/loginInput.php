@@ -2,8 +2,32 @@
 # start session
 session_start();
 
+function fetchCredentials($pdo)
+{
+    # fetch users role from DB
+    $statementFetchRole = $pdo->prepare("SELECT fRoleID FROM TUser where username=?");
+    if ($statementFetchRole->execute(array($_SESSION['username']))) {
+        # store users role in variable
+        $role = $statementFetchRole->fetchAll()[0]['fRoleID'];
+        # fetch credentials corresponding to role
+        $statementFetchCredentials = $pdo->prepare("SELECT * FROM TRole where roleID=?");
+        if ($statementFetchCredentials->execute(array($role))) {
+            $credentialsResult = $statementFetchCredentials->fetchAll()[0];
+            echo $credentialsResult['roleSQLUser'];
+            echo $credentialsResult['roleSQLPassword'];
+            # store role credentials in $_SESSION
+            $_SESSION['dbusername'] = $credentialsResult['roleSQLUser'];
+            $_SESSION['dbpassword'] = $credentialsResult['roleSQLPassword'];
+        }
+    }
+    #close statements
+    $statementFetchRole = null;
+    $statementFetchCredentials = null;
+}
+
+
 # check if password is correct
-function checkPassword($statementRow, $password)
+function checkPassword($statementRow, $password, $pdo)
 {
     # compare password hash from database with inputted password
     if (password_verify($password, $statementRow['password'])) {
@@ -11,7 +35,14 @@ function checkPassword($statementRow, $password)
 
         # create new session variable with username as value
         $_SESSION['username'] = $statementRow['username'];
-        //header("location:jeff.html");
+
+        # fetch credentials from DB
+        fetchCredentials($pdo);
+
+        # close connection to DB before redirecting to other page
+        $pdo = null;
+
+        header("location:showData.php");
     } else {
         echo "Password incorrect!";
     }
@@ -29,7 +60,7 @@ function checkUser($pdo, $password, $username)
         # check if query returned something
         if (isset($result)) {
             # if user exists, call function to check if password is valid
-            checkPassword($result, $password);
+            checkPassword($result, $password, $pdo);
         } else {
             # if user does not exist, do nothing
             echo "User does not exist!";
@@ -55,4 +86,4 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     $pdo = null;
 }
 
-# TODO: admin alle rechte, guest select Rechte, add user: select, del, insert, update
+# TODO: admin alle rechte, guest select Rechte, add website: select, del, insert, update

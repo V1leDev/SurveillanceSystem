@@ -1,3 +1,16 @@
+<?php
+# start session
+session_start();
+
+if (isset($_SESSION['username'])) {
+    if ($_SESSION['dbusername'] == 'admin') {
+        header("location:showDataAdmin.php");
+    } elseif ($_SESSION['dbusername'] == 'guest') {
+        header("location:showData.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,12 +28,17 @@
 
 <body id="page-top">
 <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
-    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.html">Visionary</a><button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
+    <div class="container"><a class="navbar-brand js-scroll-trigger" href="../index.html">Visionary</a>
+        <button data-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive"
+                type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                value="Menu"><i class="fa fa-bars"></i></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav-link js-scroll-trigger"></li>
-                <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#register">sign up</a></li>
-                <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="login.php#login">login</a></li>
+                <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger" href="#register">sign
+                        up</a></li>
+                <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                                                   href="login.php#login">login</a></li>
             </ul>
         </div>
     </div>
@@ -31,7 +49,9 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h1 class="brand-heading">Visionary</h1>
-                    <p class="intro-text">A search engine to find information on people.</p><a class="btn btn-link btn-circle" role="button" href="#login"><i class="fa fa-angle-double-down animated"></i></a>
+                    <p class="intro-text">A search engine to find information on people.</p><a
+                            class="btn btn-link btn-circle" role="button" href="#login"><i
+                                class="fa fa-angle-double-down animated"></i></a>
                 </div>
             </div>
         </div>
@@ -42,9 +62,13 @@
         <form method="post" action="registerInput.php">
             <h2 class="sr-only">Registration Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="form-group"><input class="form-control" type="text" name="username_input" placeholder="Username"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password_input" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Register</button></div>
+            <div class="form-group"><input class="form-control" type="text" name="username_input"
+                                           placeholder="Username"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password_input"
+                                           placeholder="Password"></div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Register</button>
+            </div>
         </form>
     </section>
 </section>
