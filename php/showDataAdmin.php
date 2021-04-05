@@ -32,7 +32,7 @@ if (!isset($_SESSION['username'])) {
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a id="activateHomeAdmin" href="#">Settings</a></li>
             <li class="sidebar-brand"><a href="logout.php">Logout</a></li>
-            <li><a href="#" id="activatePersonAdmin" >Personen</a></li>
+            <li><a href="#" id="activatePersonAdmin">Personen</a></li>
             <li><a href="#" id="activateGeburtAdmin">Geburten</a></li>
             <li><a href="#" id="activateOrtAdmin">Orte</a></li>
             <li><a href="#" id="activateGemeindeAdmin">Gemeinden</a></li>
@@ -56,7 +56,18 @@ if (!isset($_SESSION['username'])) {
                         class="fa fa-bars"></i></a>
             <div class="row">
                 <div id="datadivAdmin" class="col-md-12">
-                    <h1>Hello there <?php echo $_SESSION['username']?></h1>
+                    <h1 style="text-align: center;margin-bottom: 5%;" id="settingsHeaderAdmin">Hello
+                        there <?php echo $_SESSION['username'] ?>, this is your settings page</h1>
+                    <div id="settingsAdmin" class="form-group" style="text-align: center;">
+                        <form style="text-align: center;">
+                            <h4 style="text-align: center;">Change password</h4>
+                            <input class="form-control" id="changepwAdmin" type="password"
+                                   style="text-align: center;width: 100%;">
+                            <button class="btn btn-primary" id="buttonchangepwAdmin" type="button"
+                                    style="text-align: center;width: 50%;background: #62079a;">Change it!
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

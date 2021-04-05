@@ -42,7 +42,12 @@ function checkPassword($statementRow, $password, $pdo)
         # close connection to DB before redirecting to other page
         $pdo = null;
 
-        header("location:showData.php");
+        if ($_SESSION['dbusername'] == 'admin') {
+            header("location:showDataAdmin.php");
+        } elseif ($_SESSION['dbusername'] == 'guest') {
+            header("location:showData.php");
+        }
+
     } else {
         echo "Password incorrect!";
     }
