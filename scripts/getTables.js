@@ -9,10 +9,16 @@ activateSitzPerson = document.getElementById('activateSitzPerson')
 activateArbeitsplatz = document.getElementById('activateArbeitsplatz')
 activatePersonArbeitsplatz = document.getElementById('activatePersonArbeitsplatz')
 activateBankkonto = document.getElementById('activateBankkonto')
+activatePersonBankkonto = document.getElementById('activatePersonBankkonto')
 
 activatePersonArbeitsplatz.onclick = function () {
     createDataTable()
     getData('getTPersonArbeitsplatz.php')
+}
+
+activatePersonBankkonto.onclick = function () {
+    createDataTable()
+    getData('getTPersonBankkonto.php')
 }
 
 activateBankkonto.onclick = function () {
