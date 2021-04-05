@@ -29,20 +29,21 @@ if (!isset($_SESSION['username'])) {
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a id="activateHome" href="#">Home </a></li>
-            <li><a href="#" id="activatePerson" ">Person</a></li>
-            <li><a href="#" id="activateGeburt">Geburt</a></li>
-            <li><a href="#" id="activateOrt">Ort</a></li>
-            <li><a href="#" id="activateGemeinde">Gemeinde</a></li>
-            <li><a href="#" id="activateSitz">Sitz</a></li>
-            <li><a href="#" id="activateSitzPerson">Wohnsitz</a></li>
-            <li><a href="#" id="activateArbeitsplatz">Arbeitsplatz</a></li>
-            <li><a href="#" id="activatePersonArbeitsplatz">Beruf</a></li>
-            <li><a href="#" id="activateBankkonto">Bankkonto & Bank</a></li>
-            <li><a href="#" id="activatePersonBankkonto">Bankkonto & Kunde</a></li>
-            <li><a href="#" id="activateHobby">Hobby</a></li>
-            <li><a href="#" id="activatePersonHobby">Hobby & Person</a></li>
-            <li><a href="#" id="activateFreund">Freund</a></li>
+            <li><a href="#" id="activatePerson" ">Personen</a></li>
+            <li><a href="#" id="activateGeburt">Geburten</a></li>
+            <li><a href="#" id="activateOrt">Orte</a></li>
+            <li><a href="#" id="activateGemeinde">Gemeinden</a></li>
+            <li><a href="#" id="activateSitz">Sitze</a></li>
+            <li><a href="#" id="activateSitzPerson">Wohnsitze</a></li>
+            <li><a href="#" id="activateArbeitsplatz">Arbeitsplätze</a></li>
+            <li><a href="#" id="activatePersonArbeitsplatz">Berufe</a></li>
+            <li><a href="#" id="activateBankkonto">Bankkonten & Banken</a></li>
+            <li><a href="#" id="activatePersonBankkonto">Bankkonten & Kunden</a></li>
+            <li><a href="#" id="activateHobby">Hobbys</a></li>
+            <li><a href="#" id="activatePersonHobby">Hobbys & Personen</a></li>
+            <li><a href="#" id="activateFreund">Freunde</a></li>
             <li><a href="#" id="activatePartner">Partner</a></li>
+            <li><a href="#" id="activateFeindlicheKommentare">Feindliche Kommentare</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">

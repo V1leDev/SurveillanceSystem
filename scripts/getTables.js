@@ -14,10 +14,16 @@ activateHobby = document.getElementById('activateHobby')
 activatePersonHobby = document.getElementById('activatePersonHobby')
 activateFreund = document.getElementById('activateFreund')
 activatePartner = document.getElementById('activatePartner')
+activateFeindlicheKommentare = document.getElementById('activateFeindlicheKommentare')
 
 activatePersonArbeitsplatz.onclick = function () {
     createDataTable()
     getData('getTPersonArbeitsplatz.php')
+}
+
+activateFeindlicheKommentare.onclick = function () {
+    createDataTable()
+    getData('getTFeindlicheKommentare.php')
 }
 
 activatePartner.onclick = function () {
