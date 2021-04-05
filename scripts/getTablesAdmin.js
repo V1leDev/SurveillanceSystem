@@ -5,6 +5,7 @@ activateOrtAdmin = document.getElementById('activateOrtAdmin')
 activateGemeindeAdmin = document.getElementById('activateGemeindeAdmin')
 activateSitzAdmin = document.getElementById('activateSitzAdmin')
 activateSitzPersonAdmin = document.getElementById('activateSitzPersonAdmin')
+activateArbeitsplatzAdmin = document.getElementById('activateArbeitsplatzAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -198,6 +199,37 @@ activateGemeindeAdmin.onclick = function () {
             {data: 'Name'},
             {data: 'Postleitzahl'},
             {data: 'Land'}
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activateArbeitsplatzAdmin.onclick = function () {
+    createDataTable(['ArbeitsplatzID', 'Beruf', 'Firmenname', 'SitzID'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TArbeitsplatzAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'ArbeitsplatzID', name: 'ArbeitsplatzID'},
+            {label: 'Beruf', name: 'Beruf'},
+            {label: 'Firmenname', name: 'Firmenname'},
+            {label: 'SitzIDForeign', name: 'SitzIDForeign'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TArbeitsplatzAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'ArbeitsplatzID'},
+            {data: 'Beruf'},
+            {data: 'Firmenname'},
+            {data: 'SitzIDForeign'},
         ],
         select: true,
         buttons: [
