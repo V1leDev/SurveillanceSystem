@@ -54,12 +54,7 @@ if (!isset($_SESSION['username'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="../scripts/getTPerson.js" type="text/javascript"></script>
-<script src="../scripts/getTGeburt.js" type="text/javascript"></script>
-<script src="../scripts/getTOrt.js" type="text/javascript"></script>
-<script src="../scripts/getTGemeinde.js" type="text/javascript"></script>
-<script src="../scripts/getTSitz.js" type="text/javascript"></script>
-<script src="../scripts/getTSitzPerson.js" type="text/javascript"></script>
+<script src="../scripts/getTables.js" type="text/javascript"></script>
 <script src="../scripts/dataHome.js" type="text/javascript"></script>
 </body>
 
