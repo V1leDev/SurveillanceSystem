@@ -7,6 +7,7 @@ activateSitzAdmin = document.getElementById('activateSitzAdmin')
 activateSitzPersonAdmin = document.getElementById('activateSitzPersonAdmin')
 activateArbeitsplatzAdmin = document.getElementById('activateArbeitsplatzAdmin')
 activatePersonArbeitsplatzAdmin = document.getElementById('activatePersonArbeitsplatzAdmin')
+activateBankkontoAdmin = document.getElementById('activateBankkontoAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -77,6 +78,35 @@ activateSitzPersonAdmin.onclick = function () {
             {data: 'SitzIDForeign'},
             {data: 'StartDatum'},
             {data: 'EndDatum'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activateBankkontoAdmin.onclick = function () {
+    createDataTable(['KontoID', 'Bank', 'Kontostand'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TBankkontoAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'KontoID', name: 'KontoID'},
+            {label: 'Bank', name: 'Bank'},
+            {label: 'Kontostand', name: 'Kontostand'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TBankkontoAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'KontoID'},
+            {data: 'Bank'},
+            {data: 'Kontostand'},
         ],
         select: true,
         buttons: [
