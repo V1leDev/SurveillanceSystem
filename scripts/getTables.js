@@ -8,10 +8,16 @@ activateSitz = document.getElementById('activateSitz')
 activateSitzPerson = document.getElementById('activateSitzPerson')
 activateArbeitsplatz = document.getElementById('activateArbeitsplatz')
 activatePersonArbeitsplatz = document.getElementById('activatePersonArbeitsplatz')
+activateBankkonto = document.getElementById('activateBankkonto')
 
 activatePersonArbeitsplatz.onclick = function () {
     createDataTable()
     getData('getTPersonArbeitsplatz.php')
+}
+
+activateBankkonto.onclick = function () {
+    createDataTable()
+    getData('getTBankkonto.php')
 }
 
 activateGeburt.onclick = function () {
