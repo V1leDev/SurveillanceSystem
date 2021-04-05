@@ -1,6 +1,7 @@
 let datadiv = document.getElementById('datadivAdmin')
 activatePersonAdmin = document.getElementById('activatePersonAdmin')
 activateGeburtAdmin = document.getElementById('activateGeburtAdmin')
+activateOrtAdmin = document.getElementById('activateOrtAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -77,6 +78,37 @@ activateGeburtAdmin.onclick = function () {
         ]
     });
 }
+
+
+activateOrtAdmin.onclick = function () {
+    createDataTable(['OrtID', 'Name', 'GemeindenID'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TOrtAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'OrtID', name: 'OrtID'},
+            {label: 'Name', name: 'Name'},
+            {label: 'GemeindenIDForeign', name: 'GemeindenIDForeign'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TOrtAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'OrtID'},
+            {data: 'Name'},
+            {data: 'GemeindenIDForeign'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 
 
 function createDataTable(columns) {
