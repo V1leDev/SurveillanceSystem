@@ -6,6 +6,7 @@ activateGemeindeAdmin = document.getElementById('activateGemeindeAdmin')
 activateSitzAdmin = document.getElementById('activateSitzAdmin')
 activateSitzPersonAdmin = document.getElementById('activateSitzPersonAdmin')
 activateArbeitsplatzAdmin = document.getElementById('activateArbeitsplatzAdmin')
+activatePersonArbeitsplatzAdmin = document.getElementById('activatePersonArbeitsplatzAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -208,6 +209,40 @@ activateGemeindeAdmin.onclick = function () {
         ]
     });
 }
+
+activatePersonArbeitsplatzAdmin.onclick = function () {
+    createDataTable(['BerufID', 'Ausweisnummer', 'ArbeitsplatzID', 'Startdatum', 'Enddatum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TPersonArbeitsplatzAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'PersonArbeitsplatzID', name: 'PersonArbeitsplatzID'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+            {label: 'ArbeitsplatzIDForeign', name: 'ArbeitsplatzIDForeign'},
+            {label: 'StartDatum', name: 'StartDatum'},
+            {label: 'EndDatum', name: 'EndDatum'}
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TPersonArbeitsplatzAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'PersonArbeitsplatzID'},
+            {data: 'AusweisnummerForeign'},
+            {data: 'ArbeitsplatzIDForeign'},
+            {data: 'StartDatum'},
+            {data: 'EndDatum'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 
 activateArbeitsplatzAdmin.onclick = function () {
     createDataTable(['ArbeitsplatzID', 'Beruf', 'Firmenname', 'SitzID'])
