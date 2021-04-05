@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("location:login.php#login");
+    header("location:../login.php#login");
 }
 
 $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', $_SESSION['dbusername'], $_SESSION['dbpassword'], array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

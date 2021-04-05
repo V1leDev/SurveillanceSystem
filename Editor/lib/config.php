@@ -1,5 +1,11 @@
 <?php if (!defined('DATATABLES')) exit(); // Ensure being used in DataTables env.
+
 session_start();
+if (!isset($_SESSION['username'])) {
+    header("location:../../php/login.php#login");
+    die();
+}
+
 // Enable error reporting for debugging (remove for production)
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
