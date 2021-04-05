@@ -62,7 +62,7 @@ if (!isset($_SESSION['username'])) {
                         <form style="text-align: center;">
                             <h4 style="text-align: center;">Change password</h4>
                             <input class="form-control" id="changepwAdmin" type="password"
-                                   style="text-align: center;width: 100%;">
+                                   style="text-align: center;width: 50%; margin-left: 25%">
                             <button class="btn btn-primary" id="buttonchangepwAdmin" type="button"
                                     style="text-align: center;width: 50%;background: #62079a;">Change it!
                             </button>
