@@ -71,8 +71,7 @@ if (!isset($_SESSION['username'])) {
         src="https://cdn.datatables.net/v/dt/dt-1.10.24/b-1.7.0/sl-1.3.3/datatables.min.js"></script>
 <script src="../Editor/js/dataTables.editor.js"></script>
 
-<!-- Person -->
-<script src="../scripts/getTPersonAdmin.js" type="text/javascript"></script>
+<script src="../scripts/getTablesAdmin.js" type="text/javascript"></script>
 <script src="../scripts/dataHomeAdmin.js" type="text/javascript"></script>
 
 
