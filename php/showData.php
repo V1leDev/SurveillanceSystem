@@ -44,6 +44,8 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activateFreund">Freunde</a></li>
             <li><a href="#" id="activatePartner">Partner</a></li>
             <li><a href="#" id="activateFeindlicheKommentare">Feindliche Kommentare</a></li>
+            <li><a href="#" id="activateStraftat">Begangene Straftaten</a></li>
+            <li><a href="#" id="activatePersonStraftat">Strafregister</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">

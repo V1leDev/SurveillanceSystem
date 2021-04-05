@@ -14,12 +14,25 @@ activateHobby = document.getElementById('activateHobby')
 activatePersonHobby = document.getElementById('activatePersonHobby')
 activateFreund = document.getElementById('activateFreund')
 activatePartner = document.getElementById('activatePartner')
+activateStraftat = document.getElementById('activateStraftat')
+activatePersonStraftat = document.getElementById('activatePersonStraftat')
 activateFeindlicheKommentare = document.getElementById('activateFeindlicheKommentare')
 
 activatePersonArbeitsplatz.onclick = function () {
     createDataTable()
     getData('getTPersonArbeitsplatz.php')
 }
+
+activatePersonStraftat.onclick = function () {
+    createDataTable()
+    getData('getTPersonStraftat.php')
+}
+
+activateStraftat.onclick = function () {
+    createDataTable()
+    getData('getTStraftat.php')
+}
+
 
 activateFeindlicheKommentare.onclick = function () {
     createDataTable()
