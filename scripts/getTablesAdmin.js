@@ -14,6 +14,7 @@ activateHobbyPersonAdmin = document.getElementById('activatePersonHobbyAdmin')
 activateFreundAdmin = document.getElementById('activateFreundAdmin')
 activatePartnerAdmin = document.getElementById('activatePartnerAdmin')
 activateFeindlicheKommentareAdmin = document.getElementById('activateFeindlicheKommentareAdmin')
+activateStraftatAdmin = document.getElementById('activateStraftatAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -195,6 +196,34 @@ activateSitzPersonAdmin.onclick = function () {
         ]
     });
 }
+
+activateStraftatAdmin.onclick = function () {
+    createDataTable(['StraftatID', 'Art'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TStraftatAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'StraftatID', name: 'StraftatID'},
+            {label: 'Art', name: 'Art'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TStraftatAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'StraftatID'},
+            {data: 'Art'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 
 activateHobbyAdmin.onclick = function () {
     createDataTable(['HobbyID', 'Name'])
