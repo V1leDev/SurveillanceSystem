@@ -11,6 +11,7 @@ activateBankkontoAdmin = document.getElementById('activateBankkontoAdmin')
 activatePersonBankkontoAdmin = document.getElementById('activatePersonBankkontoAdmin')
 activateHobbyAdmin = document.getElementById('activateHobbyAdmin')
 activateHobbyPersonAdmin = document.getElementById('activatePersonHobbyAdmin')
+activateFreundAdmin = document.getElementById('activateFreundAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -79,6 +80,39 @@ activateHobbyPersonAdmin.onclick = function () {
             {data: 'HobbyPersonID'},
             {data: 'AusweisnummerForeign'},
             {data: 'HobbyIDForeign'},
+            {data: 'StartDatum'},
+            {data: 'EndDatum'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activateFreundAdmin.onclick = function () {
+    createDataTable(['FreundID', 'Ausweisnummer', 'Ausweisnummer', 'Startdatum', 'Enddatum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TFreundAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'FreundID', name: 'FreundID'},
+            {label: 'Ausweisnummer1Foreign', name: 'Ausweisnummer1Foreign'},
+            {label: 'Ausweisnummer2Foreign', name: 'Ausweisnummer2Foreign'},
+            {label: 'StartDatum', name: 'StartDatum'},
+            {label: 'EndDatum', name: 'EndDatum'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TFreundAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'FreundID'},
+            {data: 'Ausweisnummer1Foreign'},
+            {data: 'Ausweisnummer2Foreign'},
             {data: 'StartDatum'},
             {data: 'EndDatum'},
         ],
