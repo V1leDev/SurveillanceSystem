@@ -39,6 +39,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activatePersonArbeitsplatz">Beruf</a></li>
             <li><a href="#" id="activateBankkonto">Bankkonto & Bank</a></li>
             <li><a href="#" id="activatePersonBankkonto">Bankkonto & Kunde</a></li>
+            <li><a href="#" id="activateHobby">Hobby</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">
