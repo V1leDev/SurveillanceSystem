@@ -13,10 +13,16 @@ activatePersonBankkonto = document.getElementById('activatePersonBankkonto')
 activateHobby = document.getElementById('activateHobby')
 activatePersonHobby = document.getElementById('activatePersonHobby')
 activateFreund = document.getElementById('activateFreund')
+activatePartner = document.getElementById('activatePartner')
 
 activatePersonArbeitsplatz.onclick = function () {
     createDataTable()
     getData('getTPersonArbeitsplatz.php')
+}
+
+activatePartner.onclick = function () {
+    createDataTable()
+    getData('getTPartner.php')
 }
 
 activateFreund.onclick = function () {

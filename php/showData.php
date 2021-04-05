@@ -42,6 +42,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activateHobby">Hobby</a></li>
             <li><a href="#" id="activatePersonHobby">Hobby & Person</a></li>
             <li><a href="#" id="activateFreund">Freund</a></li>
+            <li><a href="#" id="activatePartner">Partner</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">
