@@ -9,6 +9,7 @@ activateArbeitsplatzAdmin = document.getElementById('activateArbeitsplatzAdmin')
 activatePersonArbeitsplatzAdmin = document.getElementById('activatePersonArbeitsplatzAdmin')
 activateBankkontoAdmin = document.getElementById('activateBankkontoAdmin')
 activatePersonBankkontoAdmin = document.getElementById('activatePersonBankkontoAdmin')
+activateHobbyAdmin = document.getElementById('activateHobbyAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -88,6 +89,34 @@ activateSitzPersonAdmin.onclick = function () {
         ]
     });
 }
+
+activateHobbyAdmin.onclick = function () {
+    createDataTable(['HobbyID', 'Name'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/THobbyAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'HobbyID', name: 'HobbyID'},
+            {label: 'Name', name: 'Name'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/THobbyAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'HobbyID'},
+            {data: 'Name'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 
 activatePersonBankkontoAdmin.onclick = function () {
     createDataTable(['PersonBankkontoID', 'Ausweisnummer', 'KontoID'])
