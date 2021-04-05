@@ -12,6 +12,7 @@ activatePersonBankkontoAdmin = document.getElementById('activatePersonBankkontoA
 activateHobbyAdmin = document.getElementById('activateHobbyAdmin')
 activateHobbyPersonAdmin = document.getElementById('activatePersonHobbyAdmin')
 activateFreundAdmin = document.getElementById('activateFreundAdmin')
+activatePartnerAdmin = document.getElementById('activatePartnerAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -92,6 +93,41 @@ activateHobbyPersonAdmin.onclick = function () {
     });
 }
 
+activatePartnerAdmin.onclick = function () {
+    createDataTable(['PartnerID', 'Ausweisnummer', 'Ausweisnummer', 'Liebeslevel', 'Startdatum', 'Enddatum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TPartnerAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'PartnerID', name: 'PartnerID'},
+            {label: 'Ausweisnummer1Foreign', name: 'Ausweisnummer1Foreign'},
+            {label: 'Ausweisnummer2Foreign', name: 'Ausweisnummer2Foreign'},
+            {label: 'Liebeslevel', name: 'Liebeslevel'},
+            {label: 'StartDatum', name: 'StartDatum'},
+            {label: 'EndDatum', name: 'EndDatum'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TPartnerAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'PartnerID'},
+            {data: 'Ausweisnummer1Foreign'},
+            {data: 'Ausweisnummer2Foreign'},
+            {data: 'Liebeslevel'},
+            {data: 'StartDatum'},
+            {data: 'EndDatum'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 activateFreundAdmin.onclick = function () {
     createDataTable(['FreundID', 'Ausweisnummer', 'Ausweisnummer', 'Startdatum', 'Enddatum'])
 
@@ -124,7 +160,6 @@ activateFreundAdmin.onclick = function () {
         ]
     });
 }
-
 
 
 activateSitzPersonAdmin.onclick = function () {
@@ -369,6 +404,7 @@ activateGemeindeAdmin.onclick = function () {
         ]
     });
 }
+
 
 activatePersonArbeitsplatzAdmin.onclick = function () {
     createDataTable(['BerufID', 'Ausweisnummer', 'ArbeitsplatzID', 'Startdatum', 'Enddatum'])
