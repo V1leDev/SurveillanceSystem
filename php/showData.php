@@ -28,7 +28,8 @@ if (!isset($_SESSION['username'])) {
 <div id="wrapper">
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a id="activateHome" href="#">Home </a></li>
+            <li class="sidebar-brand"><a id="activateHome" href="#">Settings</a></li>
+            <li class="sidebar-brand"><a  href="logout.php">Logout</a></li>
             <li><a href="#" id="activatePerson" ">Personen</a></li>
             <li><a href="#" id="activateGeburt">Geburten</a></li>
             <li><a href="#" id="activateOrt">Orte</a></li>
@@ -53,7 +54,7 @@ if (!isset($_SESSION['username'])) {
                         class="fa fa-bars"></i></a>
             <div class="row">
                 <div id="datadiv" class="col-md-12">
-                    <h1>Hello there Admin!</h1>
+                    <h1>Hello there  <?php echo $_SESSION['username']?></h1>
                 </div>
             </div>
         </div>

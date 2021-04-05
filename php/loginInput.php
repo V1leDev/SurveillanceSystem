@@ -56,11 +56,12 @@ function checkUser($pdo, $password, $username)
     # check if execution was successful
     if ($statementCheckUser->execute(array($username))) {
         # store query result in variable
-        $result = $statementCheckUser->fetchAll()[0];
+        $result = $statementCheckUser->fetchAll();
+
         # check if query returned something
-        if (isset($result)) {
+        if (isset($result[0])) {
             # if user exists, call function to check if password is valid
-            checkPassword($result, $password, $pdo);
+            checkPassword($result[0], $password, $pdo);
         } else {
             # if user does not exist, do nothing
             echo "User does not exist!";
