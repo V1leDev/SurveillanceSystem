@@ -3,6 +3,7 @@ activatePersonAdmin = document.getElementById('activatePersonAdmin')
 activateGeburtAdmin = document.getElementById('activateGeburtAdmin')
 activateOrtAdmin = document.getElementById('activateOrtAdmin')
 activateGemeindeAdmin = document.getElementById('activateGemeindeAdmin')
+activateSitzAdmin = document.getElementById('activateSitzAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -70,6 +71,38 @@ activateGeburtAdmin.onclick = function () {
             {data: 'GeburtsID'},
             {data: 'Geburtsdatum'},
             {data: 'OrtIDForeign'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+// TODO: Fix bug
+activateSitzAdmin.onclick = function () {
+    createDataTable(['SitzID', 'Straße', 'Straßennummer', 'OrtID'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TSitzAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'SitzID', name: 'SitzID'},
+            {label: 'Straße', name: 'Straße'},
+            {label: 'Straßennummer', name: 'Straßennummer'},
+            {label: 'OrtIDForeign', name: 'OrtIDForeign'}
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TSitzAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'SitzID'},
+            {data: 'Straße'},
+            {data: 'Straßennummer'},
+            {data: 'OrtIDForeign'}
         ],
         select: true,
         buttons: [
