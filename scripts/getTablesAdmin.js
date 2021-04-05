@@ -10,6 +10,7 @@ activatePersonArbeitsplatzAdmin = document.getElementById('activatePersonArbeits
 activateBankkontoAdmin = document.getElementById('activateBankkontoAdmin')
 activatePersonBankkontoAdmin = document.getElementById('activatePersonBankkontoAdmin')
 activateHobbyAdmin = document.getElementById('activateHobbyAdmin')
+activateHobbyPersonAdmin = document.getElementById('activatePersonHobbyAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -56,6 +57,41 @@ activatePersonAdmin.onclick = function () {
         ]
     });
 }
+
+activateHobbyPersonAdmin.onclick = function () {
+    createDataTable(['HobbyPersonID', 'Ausweisnummer', 'HobbyID', 'Startdatum', 'Enddatum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/THobbyPersonAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'HobbyPersonID', name: 'HobbyPersonID'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+            {label: 'HobbyIDForeign', name: 'HobbyIDForeign'},
+            {label: 'StartDatum', name: 'StartDatum'},
+            {label: 'EndDatum', name: 'EndDatum'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/THobbyPersonAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'HobbyPersonID'},
+            {data: 'AusweisnummerForeign'},
+            {data: 'HobbyIDForeign'},
+            {data: 'StartDatum'},
+            {data: 'EndDatum'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+
 
 activateSitzPersonAdmin.onclick = function () {
     createDataTable(['WohnsitzID', 'Ausweisnummer', 'SitzID', 'Startdatum', 'Enddatum'])
