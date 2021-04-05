@@ -13,6 +13,7 @@ activateHobbyAdmin = document.getElementById('activateHobbyAdmin')
 activateHobbyPersonAdmin = document.getElementById('activatePersonHobbyAdmin')
 activateFreundAdmin = document.getElementById('activateFreundAdmin')
 activatePartnerAdmin = document.getElementById('activatePartnerAdmin')
+activateFeindlicheKommentareAdmin = document.getElementById('activateFeindlicheKommentareAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -212,6 +213,35 @@ activateHobbyAdmin.onclick = function () {
         columns: [
             {data: 'HobbyID'},
             {data: 'Name'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activateFeindlicheKommentareAdmin.onclick = function () {
+    createDataTable(['KommentarID', 'Text', 'Ausweisnummer'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TFeindlicheKommentareAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'KommentarID', name: 'KommentarID'},
+            {label: 'Text', name: 'Text'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TFeindlicheKommentareAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'KommentarID'},
+            {data: 'Text'},
+            {data: 'AusweisnummerForeign'},
         ],
         select: true,
         buttons: [
