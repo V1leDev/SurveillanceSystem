@@ -15,6 +15,7 @@ activateFreundAdmin = document.getElementById('activateFreundAdmin')
 activatePartnerAdmin = document.getElementById('activatePartnerAdmin')
 activateFeindlicheKommentareAdmin = document.getElementById('activateFeindlicheKommentareAdmin')
 activateStraftatAdmin = document.getElementById('activateStraftatAdmin')
+activatePersonStraftatAdmin = document.getElementById('activatePersonStraftatAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -52,6 +53,37 @@ activatePersonAdmin.onclick = function () {
             {data: 'VaterAusweisnummerForeign'},
             {data: 'MutterAusweisnummerForeign'},
             {data: 'GeburtsIDForeign'}
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activatePersonStraftatAdmin.onclick = function () {
+    createDataTable(['StrafregisterID', 'Ausweisnummer', 'StraftatID', 'Datum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TPersonStraftatAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'PersonStraftatID', name: 'PersonStraftatID'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+            {label: 'StraftatIDForeign', name: 'StraftatIDForeign'},
+            {label: 'Datum', name: 'Datum'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TPersonStraftatAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'PersonStraftatID'},
+            {data: 'AusweisnummerForeign'},
+            {data: 'StraftatIDForeign'},
+            {data: 'Datum'},
         ],
         select: true,
         buttons: [

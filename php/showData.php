@@ -53,7 +53,7 @@ if (!isset($_SESSION['username'])) {
                         class="fa fa-bars"></i></a>
             <div class="row">
                 <div id="datadiv" class="col-md-12">
-                    <h1>Hello there</h1>
+                    <h1>Hello there Admin!</h1>
                 </div>
             </div>
         </div>
