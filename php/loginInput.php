@@ -2,6 +2,16 @@
 # start session
 session_start();
 
+if (isset($_SESSION['username'])) {
+    if ($_SESSION['dbusername'] == 'admin') {
+        header("location:showDataAdmin.php");
+    } elseif ($_SESSION['dbusername'] == 'guest') {
+        header("location:showData.php");
+    }
+} elseif (!isset($_SESSION['username'])) {
+    header("location:login.php#login");
+}
+
 function fetchCredentials($pdo)
 {
     # fetch users role from DB

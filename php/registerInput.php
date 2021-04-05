@@ -1,7 +1,19 @@
 <?php
+session_start();
+
+if (isset($_SESSION['username'])) {
+    if ($_SESSION['dbusername'] == 'admin') {
+        header("location:showDataAdmin.php");
+    } elseif ($_SESSION['dbusername'] == 'guest') {
+        header("location:showData.php");
+    }
+} elseif (!isset($_SESSION['username'])) {
+    header("location:register.php#register");
+}
 
 # add new user to database
-function addUser($pdo, $password, $username) {
+function addUser($pdo, $password, $username)
+{
     # prepare statement to add new user to database
     $statementAddUser = $pdo->prepare("INSERT INTO TUser VALUES (?, ?, ?, ?)");
     # hash and salt password
@@ -14,7 +26,8 @@ function addUser($pdo, $password, $username) {
     header("location:login.php#login");
 }
 
-function checkUser($pdo, $password, $username){
+function checkUser($pdo, $password, $username)
+{
     # prepare statement to query for dataset with specific username
     $statementCheckUser = $pdo->prepare("SELECT username FROM TUser WHERE username=?");
     # check if execution was successful
@@ -38,7 +51,7 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     # get password from form
     $password = $_POST['password_input'];
 
-    if ($password==''){
+    if ($password == '') {
         header("location:errorRegistrationPassword.html");
         die();
     }
