@@ -11,7 +11,7 @@ function addUser($pdo, $password, $username) {
     # close statement
     $statement = null;
 
-    echo "Registration successful!";
+    header("location:login.php#login");
 }
 
 function checkUser($pdo, $password, $username){
@@ -25,7 +25,7 @@ function checkUser($pdo, $password, $username){
             addUser($pdo, $password, $username);
         } else {
             # if returned value is set, do nothing
-            echo "Already registered!";
+            header("location:errorRegistrationUsername.html");
         }
     }
     # close statement
@@ -37,6 +37,11 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     $username = $_POST['username_input'];
     # get password from form
     $password = $_POST['password_input'];
+
+    if ($password==''){
+        header("location:errorRegistrationPassword.html");
+        die();
+    }
 
     # set up connection to database
     $pdo = new PDO('mysql:host=localhost;dbname=SurveillanceSystem', "website", "websitepw2169!");
