@@ -8,6 +8,7 @@ activateSitzPersonAdmin = document.getElementById('activateSitzPersonAdmin')
 activateArbeitsplatzAdmin = document.getElementById('activateArbeitsplatzAdmin')
 activatePersonArbeitsplatzAdmin = document.getElementById('activatePersonArbeitsplatzAdmin')
 activateBankkontoAdmin = document.getElementById('activateBankkontoAdmin')
+activatePersonBankkontoAdmin = document.getElementById('activatePersonBankkontoAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -87,6 +88,36 @@ activateSitzPersonAdmin.onclick = function () {
         ]
     });
 }
+
+activatePersonBankkontoAdmin.onclick = function () {
+    createDataTable(['PersonBankkontoID', 'Ausweisnummer', 'KontoID'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TPersonBankkontoAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'PersonBankkontoID', name: 'PersonBankkontoID'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+            {label: 'KontoIDForeign', name: 'KontoIDForeign'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TPersonBankkontoAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'PersonBankkontoID'},
+            {data: 'AusweisnummerForeign'},
+            {data: 'KontoIDForeign'},
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
 
 activateBankkontoAdmin.onclick = function () {
     createDataTable(['KontoID', 'Bank', 'Kontostand'])
