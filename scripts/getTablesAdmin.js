@@ -4,6 +4,7 @@ activateGeburtAdmin = document.getElementById('activateGeburtAdmin')
 activateOrtAdmin = document.getElementById('activateOrtAdmin')
 activateGemeindeAdmin = document.getElementById('activateGemeindeAdmin')
 activateSitzAdmin = document.getElementById('activateSitzAdmin')
+activateSitzPersonAdmin = document.getElementById('activateSitzPersonAdmin')
 
 activatePersonAdmin.onclick = function () {
     createDataTable(['Ausweisnummer', 'Vorname', 'Nachname', 'Status', 'Steuernummer', 'Email', 'Telefonnummer', 'Geschlecht', 'Ausweisnummer Vater', 'Ausweisnummer Mutter', 'GeburtsID'])
@@ -41,6 +42,39 @@ activatePersonAdmin.onclick = function () {
             {data: 'VaterAusweisnummerForeign'},
             {data: 'MutterAusweisnummerForeign'},
             {data: 'GeburtsIDForeign'}
+        ],
+        select: true,
+        buttons: [
+            {extend: 'create', editor: editor},
+            {extend: 'edit', editor: editor},
+            {extend: 'remove', editor: editor}
+        ]
+    });
+}
+
+activateSitzPersonAdmin.onclick = function () {
+    createDataTable(['WohnsitzID', 'Ausweisnummer', 'SitzID', 'Startdatum', 'Enddatum'])
+
+    let editor = new $.fn.dataTable.Editor({
+        ajax: '../Editor/TWohnsitzAdminHandler.php',
+        table: '#datatableAdmin',
+        fields: [
+            {label: 'SitzPersonID', name: 'SitzPersonID'},
+            {label: 'AusweisnummerForeign', name: 'AusweisnummerForeign'},
+            {label: 'SitzIDForeign', name: 'SitzIDForeign'},
+            {label: 'StartDatum', name: 'StartDatum'},
+            {label: 'EndDatum', name: 'EndDatum'},
+        ]
+    })
+    $('#datatableAdmin').DataTable({
+        ajax: '../Editor/TWohnsitzAdminHandler.php',
+        dom: 'Bfrtip',
+        columns: [
+            {data: 'SitzPersonID'},
+            {data: 'AusweisnummerForeign'},
+            {data: 'SitzIDForeign'},
+            {data: 'StartDatum'},
+            {data: 'EndDatum'},
         ],
         select: true,
         buttons: [

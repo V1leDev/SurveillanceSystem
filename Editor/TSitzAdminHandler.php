@@ -14,10 +14,14 @@ use
 
 $editor = Editor::inst($db, 'TSitz', 'SitzID')
     ->fields(
-        Field::inst('SitzID'),
-        Field::inst('Straße'),
-        Field::inst('Straßennummer'),
+        Field::inst('SitzID')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Straße')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Straßennummer')
+            ->setFormatter(Format::ifEmpty(null)),
         Field::inst('OrtIDForeign')
+            ->setFormatter(Format::ifEmpty(null))
     )
     ->process($_POST)
     ->json();

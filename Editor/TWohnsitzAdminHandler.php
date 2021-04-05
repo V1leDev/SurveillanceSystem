@@ -12,13 +12,17 @@ use
     DataTables\Editor\Upload,
     DataTables\Editor\Validate;
 
-$editor = Editor::inst($db, 'TGeburt', 'GeburtsID')
+$editor = Editor::inst($db, 'TSitzPerson', 'SitzPersonID')
     ->fields(
-        Field::inst('GeburtsID')
+        Field::inst('SitzPersonID')
             ->setFormatter(Format::ifEmpty(null)),
-        Field::inst('Geburtsdatum')
+        Field::inst('AusweisnummerForeign')
             ->setFormatter(Format::ifEmpty(null)),
-        Field::inst('OrtIDForeign')
+        Field::inst('SitzIDForeign')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('StartDatum')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('EndDatum')
             ->setFormatter(Format::ifEmpty(null))
     )
     ->process($_POST)

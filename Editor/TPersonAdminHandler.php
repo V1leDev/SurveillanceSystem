@@ -14,19 +14,28 @@ use
 
 $editor = Editor::inst($db, 'TPerson', 'Ausweisnummer')
     ->fields(
-        Field::inst('Ausweisnummer'),
-        Field::inst('Vorname'),
-        Field::inst('Nachname'),
-        Field::inst('Status'),
-        Field::inst('Steuernummer'),
-        Field::inst('Email'),
-        Field::inst('Telefonnummer'),
-        Field::inst('Geschlecht'),
+        Field::inst('Ausweisnummer')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Vorname')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Nachname')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Status')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Steuernummer')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Email')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Telefonnummer')
+            ->setFormatter(Format::ifEmpty(null)),
+        Field::inst('Geschlecht')
+            ->setFormatter(Format::ifEmpty(null)),
         Field::inst('VaterAusweisnummerForeign')
             ->setFormatter(Format::ifEmpty(null)),
         Field::inst('MutterAusweisnummerForeign')
             ->setFormatter(Format::ifEmpty(null)),
         Field::inst('GeburtsIDForeign')
+            ->setFormatter(Format::ifEmpty(null))
     )
     ->process($_POST)
     ->json();
