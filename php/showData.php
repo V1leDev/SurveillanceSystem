@@ -44,13 +44,13 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activateFreund">Freunde</a></li>
             <li><a href="#" id="activatePartner">Partner</a></li>
             <li><a href="#" id="activateFeindlicheKommentare">Feindliche Kommentare</a></li>
-            <li><a href="#" id="activateStraftat">Begangene Straftaten</a></li>
+            <li><a href="#" id="activateStraftat">Straftaten</a></li>
             <li><a href="#" id="activatePersonStraftat">Strafregister</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">
         <div class="container-fluid"><a class="btn btn-link" role="button" id="menu-toggle" href="#menu-toggle"><i
-                class="fa fa-bars"></i></a>
+                        class="fa fa-bars"></i></a>
             <div class="row">
                 <div id="datadiv" class="col-md-12">
                     <h1>Hello there</h1>
