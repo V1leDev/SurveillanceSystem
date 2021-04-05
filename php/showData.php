@@ -36,6 +36,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="#" id="activateSitz">Sitz</a></li>
             <li><a href="#" id="activateSitzPerson">Wohnsitz</a></li>
             <li><a href="#" id="activateArbeitsplatz">Arbeitsplatz</a></li>
+            <li><a href="#" id="activatePersonArbeitsplatz">Beruf</a></li>
         </ul>
     </div>
     <div class="page-content-wrapper">

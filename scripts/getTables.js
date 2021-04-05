@@ -7,6 +7,12 @@ activateGemeinde = document.getElementById('activateGemeinde')
 activateSitz = document.getElementById('activateSitz')
 activateSitzPerson = document.getElementById('activateSitzPerson')
 activateArbeitsplatz = document.getElementById('activateArbeitsplatz')
+activatePersonArbeitsplatz = document.getElementById('activatePersonArbeitsplatz')
+
+activatePersonArbeitsplatz.onclick = function () {
+    createDataTable()
+    getData('getTPersonArbeitsplatz.php')
+}
 
 activateGeburt.onclick = function () {
     createDataTable()
