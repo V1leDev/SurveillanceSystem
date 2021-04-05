@@ -49,7 +49,7 @@ function checkPassword($statementRow, $password, $pdo)
         }
 
     } else {
-        echo "Password incorrect!";
+        header("location:errorLoginPassword.html");
     }
 }
 
@@ -69,7 +69,7 @@ function checkUser($pdo, $password, $username)
             checkPassword($result[0], $password, $pdo);
         } else {
             # if user does not exist, do nothing
-            echo "User does not exist!";
+            header("location:errorLoginUsername.html");
         }
     }
     # close statement
@@ -92,4 +92,3 @@ if (isset($_POST['username_input']) && isset($_POST['password_input'])) {
     $pdo = null;
 }
 
-# TODO: admin alle rechte, guest select Rechte, add website: select, del, insert, update
