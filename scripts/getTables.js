@@ -1,11 +1,12 @@
 let datadiv = document.getElementById('datadiv')
 
-activateGeburt = activate = document.getElementById('activateGeburt')
-activatePerson = activate = document.getElementById('activatePerson')
-activateOrt = activate = document.getElementById('activateOrt')
-activateGemeinde = activate = document.getElementById('activateGemeinde')
-activateSitz = activate = document.getElementById('activateSitz')
-activateSitzPerson = activate = document.getElementById('activateSitzPerson')
+activateGeburt = document.getElementById('activateGeburt')
+activatePerson = document.getElementById('activatePerson')
+activateOrt = document.getElementById('activateOrt')
+activateGemeinde = document.getElementById('activateGemeinde')
+activateSitz = document.getElementById('activateSitz')
+activateSitzPerson = document.getElementById('activateSitzPerson')
+activateArbeitsplatz = document.getElementById('activateArbeitsplatz')
 
 activateGeburt.onclick = function () {
     createDataTable()
@@ -34,6 +35,11 @@ activateSitz.onclick = function () {
 activateSitzPerson.onclick = function () {
     createDataTable()
     getData('getTSitzPerson.php')
+}
+
+activateArbeitsplatz.onclick = function () {
+    createDataTable()
+    getData('getTArbeitsplatz.php')
 }
 
 function createDataTable() {
